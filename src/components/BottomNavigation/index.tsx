@@ -11,7 +11,9 @@ import {styled} from "@mui/system";
 
 
 const NavigationAction = styled(BottomNavigationAction)(() => ({
-    minWidth: '30px', width: 'fit-content', color: 'inherit'
+    color:'inherit',
+    minWidth: '30px',
+    width: 'fit-content',
 }))
 
 interface MuiBottomNavigationProps {
@@ -28,12 +30,10 @@ const MuiBottomNavigation:FC<MuiBottomNavigationProps> = ({value}) => {
         if(path !== routePathRef.current) {
             routePathRef.current = path
             handleRoute(path)
-            setTimeout(() => {
-                console.log({path})
+            console.log({path})
 
                 console.log('navigate')
                 navigate(path)
-            }, 500)
         }
         console.log({path, pathRef: routePathRef.current})
 
