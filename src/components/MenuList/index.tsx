@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useState} from "react";
+import {Dispatch, FC, SetStateAction, SyntheticEvent, useState} from "react";
 import {ListItemIcon, Menu, MenuItem} from "@mui/material";
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
 import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined';
@@ -19,8 +19,9 @@ const MuiMenuList:FC<MuiMenuListProps> = ({anchorEl, setAnchorEl}) => {
     const [selectedIndex, setSelectIndex] = useState(1)
     const open = Boolean(anchorEl)
 
-    const handleMenuItemClick = (event, index) => {
+    const handleMenuItemClick = (_:SyntheticEvent, index:number) => {
         setSelectIndex(index)
+        console.log(selectedIndex)
         setAnchorEl(null)
     }
 

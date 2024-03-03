@@ -15,7 +15,7 @@ const MuiBottomNavigation = () => {
             <BottomNavigation
                 showLabels
                 value={value}
-                onChange={(event:SyntheticEvent, newValue) => setValue(newValue)}
+                onChange={(_:SyntheticEvent, newValue) => setValue(newValue)}
             >
                 <BottomNavigationAction sx={{minWidth: '30px', width: 'fit-content', color: 'inherit'}} label='screens' icon={<GridViewOutlinedIcon/>}/>
                 <BottomNavigationAction sx={{minWidth: '30px', width: 'fit-content', color: 'inherit'}} label='apps' icon={<ExtensionOutlinedIcon/>}/>

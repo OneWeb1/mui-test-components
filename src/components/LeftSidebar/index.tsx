@@ -1,6 +1,5 @@
 import {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
 import {Box, Drawer} from "@mui/material";
-import {Simulate} from "react-dom/test-utils";
 
 
 interface LeftSidebarProps {
