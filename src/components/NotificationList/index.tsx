@@ -20,7 +20,7 @@ const MuiNotificationList:FC<MuiNotificationListProps> = ({children, anchorEl, s
     return (
         <Menu
             open={open}
-            sx={{width: 450, mt: 4}}
+            sx={{width: 340, mt: 4}}
             anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',

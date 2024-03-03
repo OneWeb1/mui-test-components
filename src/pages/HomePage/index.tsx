@@ -1,5 +1,5 @@
+import BottomNavigation from "../../components/BottomNavigation";
 import MuiHeader from "../../components/MuiHeader";
-import MuiBottomNavigation from "../../components/BottomNavigation";
 
 
 const HomePage = () => {
@@ -7,9 +7,8 @@ const HomePage = () => {
     return (
         <div>
             <MuiHeader/>
-
             HomePage
-            <MuiBottomNavigation/>
+            <BottomNavigation value={2}/>
         </div>
     );
 };

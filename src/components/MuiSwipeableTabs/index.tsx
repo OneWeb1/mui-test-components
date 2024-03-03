@@ -1,4 +1,4 @@
-import {FC, useState, ReactNode, SyntheticEvent} from "react";
+import {FC, useState, ReactNode, SyntheticEvent, useEffect} from "react";
 import SwipeableViews from 'react-swipeable-views';
 import {styled} from "@mui/system"
 import { useTheme } from '@mui/material/styles';
@@ -25,16 +25,13 @@ const MuiTab = styled(Tab)(() => ({
     width: 'fit-content'
 }))
 const TabPanel:FC<TabPanelProps> = ({children, index, value}) => {
-
+    const bg = ['red', 'green', 'blue']
     return (
         <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`full-width-tabpanel-${index}`}
-            aria-labelledby={`full-width-tab-${index}`}
+            // hidden={value !== index}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ p: 3, background: bg[index] }}>
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -54,12 +51,17 @@ const MuiSwipeableTabs = () => {
         setValue(index);
     };
 
+    useEffect(() => {
+        handleChange({} as SyntheticEvent, 0)
+        handleChangeIndex(0)
+    }, [])
+
     return (
         <Box sx={{ width: '100%', height: 35, borderBottom: '1px solid gray' }}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
-                    textColor="inhegrit"
+                    textColor="inherit"
                     sx={{width: 'fit-content', minHeight: 0, height: '100%', mt: 0, paddingX:2}}
                 >
                     <MuiTab label="Inbox" />
@@ -72,13 +74,13 @@ const MuiSwipeableTabs = () => {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} >
-                    Item One
+                    Inbox Content
                 </TabPanel>
                 <TabPanel value={value} index={1} >
-                    Item Two
+                    Archive Content
                 </TabPanel>
                 <TabPanel value={value} index={2} >
-                    Item Three
+                    Comments Content
                 </TabPanel>
             </SwipeableViews>
         </Box>
