@@ -34,7 +34,7 @@ const MuiMenuList:FC<MuiMenuListProps> = ({anchorEl, setAnchorEl}) => {
     return (
             <Menu
                 open={open}
-                sx={{width: 300, mt: 3}}
+                sx={{width: 300, mt: 3.5}}
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',

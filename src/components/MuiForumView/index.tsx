@@ -1,5 +1,6 @@
 import MuiNotificationList from "../NotificationList";
 import {Dispatch, FC, SetStateAction} from "react";
+import {Box, Typography} from "@mui/material";
 
 
 interface MuiForumViewProps {
@@ -9,7 +10,9 @@ interface MuiForumViewProps {
 const MuiForumView:FC<MuiForumViewProps> = ({anchorEl, setAnchorEl}) => {
     return (
         <MuiNotificationList anchorEl={anchorEl} setAnchorEl={setAnchorEl}>
-            ForumList
+            <Box sx={{width: 450, height: 600}}>
+                <Typography>Forum</Typography>
+            </Box>
         </MuiNotificationList>
     );
 };
