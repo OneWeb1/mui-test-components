@@ -1,10 +1,36 @@
+import {Dispatch, FC, ReactNode, SetStateAction} from "react";
+import {Menu} from "@mui/material";
 
-const NotificationList = () => {
+
+
+interface MuiNotificationListProps {
+    children: ReactNode;
+    anchorEl: EventTarget | null;
+    setAnchorEl: Dispatch<SetStateAction<EventTarget | null>>
+}
+
+const MuiNotificationList:FC<MuiNotificationListProps> = ({children,anchorEl, setAnchorEl}) => {
+    const open = Boolean(anchorEl)
+
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
+
     return (
-        <div>
+        <Menu
+            open={open}
+            sx={{width: 300, mt: 3}}
+            anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+            }}
 
-        </div>
+            onClose={handleClose}
+        >
+            {children}
+        </Menu>
     );
 };
 
-export default NotificationList;
+
+export default MuiNotificationList;

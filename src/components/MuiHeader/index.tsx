@@ -7,6 +7,8 @@ import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import { useState} from "react";
 import MuiMenuList from "../MenuList";
 import MuiLeftSidebar from "../LeftSidebar";
+import MuiNotificationView from "../MuiNotificationView";
+import MuiForumView from "../MuiForumView";
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -23,6 +25,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const MuiHeader = () => {
     const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false)
     const [menuAnchorEl, setMenuAnchorEl] = useState<EventTarget | null>(null)
+    const [notificationAnchorEl, setNotificationAnchorEl] = useState<EventTarget | null>(null)
+    const [forumAnchorEl, setForumAnchorEl] = useState<EventTarget | null>(null)
 
     return (
         <AppBar position='static' sx={{background: '#fff', color: '#000'}}>
@@ -42,6 +46,7 @@ const MuiHeader = () => {
                             edge='end'
                             size='large'
                             color='inherit'
+                            onClick={e => setForumAnchorEl(e.currentTarget)}
                         >
                             <ForumOutlinedIcon/>
                         </IconButton>
@@ -51,6 +56,7 @@ const MuiHeader = () => {
                             edge='end'
                             size='large'
                             color='inherit'
+                            onClick={e => setNotificationAnchorEl(e.currentTarget)}
                         >
                             <NotificationsNoneIcon/>
                         </IconButton>
@@ -67,6 +73,8 @@ const MuiHeader = () => {
             </Toolbar>
             <MuiLeftSidebar isOpen={isOpenSidebar} setIsOpen={setIsOpenSidebar}/>
             <MuiMenuList anchorEl={menuAnchorEl} setAnchorEl={setMenuAnchorEl}/>
+            <MuiNotificationView anchorEl={notificationAnchorEl} setAnchorEl={setNotificationAnchorEl}/>
+            <MuiForumView anchorEl={forumAnchorEl} setAnchorEl={setForumAnchorEl}/>
         </AppBar>
     );
 };
